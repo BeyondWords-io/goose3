@@ -71,11 +71,12 @@ class OutputFormatter:
     def convert_to_text(self):
         txts = []
         for node in list(self.get_top_node()):
-            txt = self.parser.getText(node)
-            if txt:
-                txt = html.unescape(txt)
-                txt_lis = innerTrim(txt).split(r'\n')
-                txts.extend(txt_lis)
+            if node.__class__.__name__ != 'HtmlComment':
+                txt = self.parser.getText(node)
+                if txt:
+                    txt = html.unescape(txt)
+                    txt_lis = innerTrim(txt).split(r'\n')
+                    txts.extend(txt_lis)
         text = '\n\n'.join(txts)
         # ensure no double newlines at the beginning of lists
         if self.config.parse_lists:
