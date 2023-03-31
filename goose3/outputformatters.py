@@ -64,7 +64,7 @@ class OutputFormatter:
         self.links_to_text()
         self.add_newline_to_br()
         self.replace_with_text()
-        self.remove_fewwords_paragraphs()
+        # self.remove_fewwords_paragraphs()
         self.make_list_elms_pretty()
         return self.convert_to_text()
 
